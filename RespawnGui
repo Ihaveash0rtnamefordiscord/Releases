@@ -1,0 +1,39 @@
+script.Name="I Like Garfield"
+wait(.2)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NotZyrex/Zyrex-Hub/master/UI-Library.lua",true))()
+local Window2 = Library:CreateWindow("FeIix Spawn Gui")
+
+Window2:Label('SpawnPoint')
+
+--//Spawning/Config
+Window2:Button('Set Spawnpoint',function()
+pcall(function()
+box = Instance.new('Part',workspace)
+box.Name = "Squiggly"
+box.Anchored = true
+box.CanCollide = false
+box.Size = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+
+--//Saves spawn point
+game.Workspace.Squiggly.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+end)
+end)
+
+Window2:Button('Delete Old Spawnpoint',function()
+    pcall(function()
+   game.Workspace.Squiggly:Destroy()
+       end)
+end)
+
+
+spawn(function()--Respawns you on the spawn point
+pcall(function()
+    print('lol loaded!')
+    local plr=game:GetService('Players').LocalPlayer
+	plr.CharacterAdded:Connect(function(plrc)
+	    wait(.45)
+	    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Workspace.Squiggly.Position)
+
+end)
+end)
+end)
