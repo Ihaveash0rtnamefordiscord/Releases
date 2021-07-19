@@ -1,0 +1,327 @@
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,-13.5,-9)
+local ohNumber1 = 0
+local ohNumber2 = -13.5
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,0,-9)
+
+local ohNumber11 = 0
+local ohNumber22 = 0
+local ohNumber33 = -9
+local ohString44 = "Wall"
+local ohNumber55 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber11, ohNumber22, ohNumber33, ohString44, ohNumber55)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,13.5,-9)
+
+local ohNumber111 = 0
+local ohNumber222 = 13.5
+local ohNumber333 = -9
+local ohString444 = "Wall"
+local ohNumber555 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber111, ohNumber222, ohNumber333, ohString444, ohNumber555)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,27,-9)
+
+local ohNumber1111 = 0
+local ohNumber2222 = 27
+local ohNumber3333 = -9
+local ohString4444 = "Wall"
+local ohNumber5555 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1111, ohNumber2222, ohNumber3333, ohString4444, ohNumber5555)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,40.5,-9)
+
+local ohNumber11111 = 0
+local ohNumber22222 = 40.5
+local ohNumber33333 = -9
+local ohString44444 = "Wall"
+local ohNumber55555 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber11111, ohNumber22222, ohNumber33333, ohString44444, ohNumber55555)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,54,-9)
+
+local ohNumber111111 = 0
+local ohNumber222222 = 54
+local ohNumber333333 = -9
+local ohString444444 = "Wall"
+local ohNumber555555 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber111111, ohNumber222222, ohNumber333333, ohString444444, ohNumber555555)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,-9,-9)
+
+local ohNumber1111111 = 0
+local ohNumber2222222 = 67.5
+local ohNumber3333333 = -9
+local ohString4444444 = "Wall"
+local ohNumber555555 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1111111, ohNumber2222222, ohNumber3333333, ohString4444444, ohNumber555555)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,81,-9)
+
+local ohNumber11111111 = 0
+local ohNumber22222222 = 81
+local ohNumber33333333 = -9
+local ohString44444444 = "Wall"
+local ohNumber5555555 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber11111111, ohNumber22222222, ohNumber33333333, ohString44444444, ohNumber5555555)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,94.5,-9)
+
+local ohNumber1 = 0
+local ohNumber2 = 94.5
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0,103,-9)
+
+local ohNumber1 = -0
+local ohNumber2 = 101.25
+local ohNumber3 = -18
+local ohString4 = "Floor"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+local ohNumber1 = 18
+local ohNumber2 = 101.25
+local ohNumber3 = -18
+local ohString4 = "Floor"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -18
+local ohNumber2 = 101.25
+local ohNumber3 = -18
+local ohString4 = "Floor"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 108
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 108
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = 3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 18
+local ohNumber2 = 108
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = 0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -18
+local ohNumber2 = 108
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -18
+local ohNumber2 = 108
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 18
+local ohNumber2 = 108
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = 3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 121.5
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 121.5
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 135
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 135
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+local ohNumber1 = 27
+local ohNumber2 = 108
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+local ohNumber1 = -27
+local ohNumber2 = 108
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -18
+local ohNumber2 = 114.75
+local ohNumber3 = -18
+local ohString4 = "Floor"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 18
+local ohNumber2 = 114.75
+local ohNumber3 = -18
+local ohString4 = "Floor"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 9
+local ohNumber2 = 121.5
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -9
+local ohNumber2 = 121.5
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -9
+local ohNumber2 = 135
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 9
+local ohNumber2 = 135
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 9
+local ohNumber2 = 148.5
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 9
+local ohNumber2 = 162
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 162
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = 3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -9
+local ohNumber2 = 162
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 162
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -9
+local ohNumber2 = 148.5
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 148.5
+local ohNumber3 = -9
+local ohString4 = "Wall"
+local ohNumber5 = -0
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 0
+local ohNumber2 = 148.5
+local ohNumber3 = -27
+local ohString4 = "Wall"
+local ohNumber5 = -3.1415926535898
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = -0
+local ohNumber2 = 168.75
+local ohNumber3 = -18
+local ohString4 = "Floor"
+local ohNumber5 = -1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
+local ohNumber1 = 9
+local ohNumber2 = 135
+local ohNumber3 = -18
+local ohString4 = "Wall"
+local ohNumber5 = 1.5707963267949
+
+game:GetService("ReplicatedStorage").Network.Remotes.Build:InvokeServer(ohNumber1, ohNumber2, ohNumber3, ohString4, ohNumber5)
+
