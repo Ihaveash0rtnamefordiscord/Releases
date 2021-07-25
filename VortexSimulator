@@ -1,0 +1,82 @@
+local Client = {
+Toggles = {
+AutoSell = false,
+CollectCoins = false,
+BuyEgg = false,
+
+    
+}
+}
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NotZyrex/Zyrex-Hub/master/UI-Library.lua",true))()
+local Farming = Library:CreateWindow("Auto-Farm")
+local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart 
+local pog = math.random(1,999)
+
+
+--[[]
+Farming:Toggle('Auto-Collect Coins',function(state) 
+     Client.Toggles.CollectCoins = state
+end)
+]]
+Farming:Toggle('Auto-Collect Coins',function(state) 
+ Client.Toggles.CollectCoins = state
+end)
+
+
+Farming:Toggle('Auto-Sell',function(state) 
+     Client.Toggles.AutoSell = state
+end)
+
+Farming:Label('Auto-Buy')
+
+Farming:Toggle('Auto-Buy Egg',function(state)
+Client.Toggles.BuyEgg = state
+end)
+
+Farming:Dropdown("Red", {"Red","Blue","Yellow","Desert","Winter","Candy","Lava","Void","Beach","Toy","Old","Crimson","Toxic"},function(selected)
+   game:GetService("RunService").RenderStepped:Connect(function()
+if Client.Toggles.BuyEgg then 
+    game:GetService("ReplicatedStorage").Functions.BuyCapsule:FireServer(selected)
+end
+end)
+end)
+
+Farming:Label("Zone Teleporter")
+Farming:Dropdown("Spawn", {"Spawn","Desert","Winter","Candy","Lava","Void","Beach","Toy","Old","Crimson","Toxic","Jungle","VIP","RebirthHub", "Aqua", "Dino", "Old"},function(teleportii)
+hrp.CFrame = CFrame.new(game:GetService("Workspace").Zones[teleportii].Floor.Position + Vector3.new(0,8,0))
+end)
+
+
+
+
+
+
+   game:GetService("RunService").RenderStepped:Connect(function()
+    if Client.Toggles.AutoSell then
+        game:GetService("Players").LocalPlayer.PlayerGui.Gui.Center.MaxCoins.Visible = false
+game:GetService("ReplicatedStorage").Functions.Sell:FireServer()
+
+end
+
+
+if Client.Toggles.CollectCoins then
+game:GetService("ReplicatedStorage").Functions.CollectCoin:FireServer(pog)
+end
+
+
+
+end)
+
+--[[
+if Client.Toggles.CollectCoins then
+    for i,v in pairs(game:GetService("Workspace").Coins:GetChildren()) do
+    if v.ClassName == "Model" then
+        for _,v2 in pairs(v:GetChildren()) do
+            if v2.ClassName == "MeshPart" then
+                v2.CFrame = CFrame.new(hrp.Position)
+            end
+            end
+            end
+    end
+end
+]]
