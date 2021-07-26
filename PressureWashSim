@@ -24,19 +24,6 @@ Auto:Toggle('Auto-Water',function(state)
     Client.Variables.AutoWater = state
 end)
 
-
-game:GetService("RunService").Stepped:Connect(function()
-if Client.Variables.AutoWater then
-    if game:GetService("Players").LocalPlayer.PlayerGui.UI.Tank.Empty.Visible == true then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.2817345, 27.9342995, 9.8887682)
-game:GetService("ReplicatedStorage").Remotes.RefillRemote:FireServer(true)
-        else
-            wait(5)
-
-    end
-end
-end)
-
 Cheats:Label('Min = 1$, Max = 1M$')
 
 Cheats:Button('Give Cash',function() 
@@ -222,5 +209,14 @@ for i,v in pairs(game:GetService("Workspace").Zones["Jewelry Store"].Wall:GetChi
 end
             end
 
+end
+if Client.Variables.AutoWater then
+    if game:GetService("Players").LocalPlayer.PlayerGui.UI.Tank.Empty.Visible == true then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.2817345, 27.9342995, 9.8887682)
+game:GetService("ReplicatedStorage").Remotes.RefillRemote:FireServer(true)
+        else
+            wait(5)
+
+    end
 end
 end)
