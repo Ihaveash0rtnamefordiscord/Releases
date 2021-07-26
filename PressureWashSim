@@ -1,0 +1,226 @@
+local Client = {
+Variables = {
+Amount = 1,
+UnlockZones = false,
+AutoFarm = false,
+AutoWater = false
+
+
+    
+}
+}
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NotZyrex/Zyrex-Hub/master/UI-Library.lua",true))()
+local Main = Library:CreateWindow("Main")
+local Auto = Library:CreateWindow("Auto-Farm")
+local Cheats = Library:CreateWindow("Extra")
+local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart 
+local Zones = game:GetService("Workspace").Zones
+
+Main:Toggle('Unlock All Zones',function(state)
+    Client.Variables.UnlockZones = state
+end)
+
+Auto:Toggle('Auto-Water',function(state)
+    Client.Variables.AutoWater = state
+end)
+
+
+game:GetService("RunService").Stepped:Connect(function()
+if Client.Variables.AutoWater then
+    if game:GetService("Players").LocalPlayer.PlayerGui.UI.Tank.Empty.Visible == true then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.2817345, 27.9342995, 9.8887682)
+game:GetService("ReplicatedStorage").Remotes.RefillRemote:FireServer(true)
+        else
+            wait(5)
+
+    end
+end
+end)
+
+Cheats:Label('Min = 1$, Max = 1M$')
+
+Cheats:Button('Give Cash',function() 
+local ohNumber1 = 2561828492367
+local ohNumber2 = Client.Variables.Amount
+
+game:GetService("ReplicatedStorage").Remotes.SurfaceCompleted:FireServer(ohNumber1, ohNumber2)
+end)
+
+Cheats:Slider('Give Cash Amount',1,100000000,function(number)
+Client.Variables.Amount = number
+end)
+
+game:GetService("RunService").Stepped:Connect(function()
+for i,v in pairs(game:GetService("Workspace").Zones["Parking Lot"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Airport"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+    end
+for i,v in pairs(game:GetService("Workspace").Zones["School"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Arctic"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Bank"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Castle"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Cleandromeda"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Garden"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Laboratory"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+        if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Mars"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Mansion"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+for i,v in pairs(game:GetService("Workspace").Zones["Jewelry Store"].Wall:GetChildren()) do
+    if Client.Variables.UnlockZones == true then
+    v.CanCollide = false
+    v.Transparency = 1
+
+
+    else
+            v.CanCollide = true
+            v.Transparency = 0
+                if v.Name == "WallBounds" then
+      v.Transparency = 1
+end
+            end
+
+end
+end)
