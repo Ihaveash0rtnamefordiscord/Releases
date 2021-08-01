@@ -1,0 +1,59 @@
+while wait(5) and getgenv().autofarm do
+if game.PlaceId == 2414851778 then
+Game:GetService("ReplicatedStorage").remotes.createLobby:InvokeServer(
+    dungeon,
+    difficulty,
+    0,
+    hardcore,
+    true,
+    wavedefense
+)
+wait(.45)
+Game:GetService("ReplicatedStorage").remotes.startDungeon:FireServer()
+else
+       game:GetService("RunService").Heartbeat:Connect(function()
+
+if game.PlaceId == 2606294912 then
+    if getgenv().autofarm then
+game.ReplicatedStorage.remotes.changeStartValue:FireServer()
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+    if v.ClassName == "Accessory" then
+        for _,v2 in pairs(v:GetChildren()) do
+            if v2.ClassName == "BoolValue" and v2.Name == "Weapon" then
+game.Players.LocalPlayer.Character[v.Name].swing:FireServer()
+                
+                end
+            end
+    end
+    end
+
+pcall(function()
+if getgenv().semigod then
+    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("LowerTorso") then 
+                         game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
+    end
+end
+            end)
+
+for _,v3 in pairs(game:GetService("Workspace").dungeon:GetChildren()) do
+    if v3.ClassName == "Model" then
+        for _,v4 in pairs(v3:GetChildren()) do
+            if v4.ClassName == "Folder" and v4.Name == "enemyFolder" then
+                for i3,v5 in pairs(v4:GetChildren()) do
+                    if v5.ClassName == "Model" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v5.HumanoidRootPart.Position + Vector3.new(-3, 0, 0))
+    if isnetworkowner(v5.HumanoidRootPart) then
+        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+        v5.Humanoid.Health = 0
+                                    end
+                                 end
+                             end
+                        end
+                    end
+                end
+                end
+            end
+        end
+    end)
+end
+end
