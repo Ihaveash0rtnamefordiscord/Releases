@@ -1,4 +1,7 @@
 
+
+--CONFIGS ABOVE--
+
 local ts = game:GetService("TweenService")
 local function Tween(part, endpos, speed)
     if part and endpos then
@@ -26,7 +29,15 @@ local ohInstance4 = v3.Config
 local ohNumber5 = v3.Config.MaxHealth.Value
 
 game:GetService("ReplicatedStorage").EnemyHit:FireServer(ohInstance1, ohInstance2, ohBoolean3, ohInstance4, ohNumber5)
+game:GetService("ReplicatedStorage").EnemyKilled:FireServer(game.Workspace[game.Players.LocalPlayer.Name], v3)
 Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, v3.HumanoidRootPart.Position, 1000)
+local ohInstance1 = workspace[game.Players.LocalPlayer.Name]
+local ohNumber2 = 999
+local ohNumber3 = 9999
+local ohBoolean4 = true
+local ohInstance5 = v3
+
+game:GetService("ReplicatedStorage").Loot:FireServer(ohInstance1, ohNumber2, ohNumber3, ohBoolean4, ohInstance5)
 if game.Players.LocalPlayer.Character.EnemyWalkTo then
 game.Players.LocalPlayer.Character.EnemyWalkTo.CFrame = CFrame.new(v3.HumanoidRootPart.Position)
 else
