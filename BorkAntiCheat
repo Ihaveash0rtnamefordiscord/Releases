@@ -1,0 +1,52 @@
+local Runservice = game:GetService("RunService")
+local femboy = gcinfo()
+function CreateChatMessage(Msg) -- This is localplayer chat so it will only show for them
+    game.StarterGui:SetCore("ChatMakeSystemMessage",{Text = Msg,Color = Color3.fromRGB(0, 255, 127),Font = Enum.Font.Highway})
+end
+
+pcall(function()
+Runservice.Stepped:Connect(function()
+
+        if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed > 16 then
+            CreateChatMessage("" .. game.Players.LocalPlayer.Name .. " Was Caught by Bork Anti-Cheat (Spoofing Speed)")--This just rejoins them
+            game:GetService("TeleportService"):Teleport(game.PlaceId)
+            wait(1)
+    end
+        if game.Players.LocalPlayer.Character.Humanoid.JumpPower > 50 then
+            CreateChatMessage("" .. game.Players.LocalPlayer.Name .. " Was Caught by Bork Anti-Cheat (Spoofing JumpPower)")--This just rejoins them
+
+            game:GetService("TeleportService"):Teleport(game.PlaceId)
+            wait(1)
+
+    end
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v.ClassName == "LocalScript" then
+                if v.Disabled == true then
+                    CreateChatMessage("" .. game.Players.LocalPlayer.Name .. " Was Caught by Bork Anti-Cheat (Modifing Local Scripts!)")--This just rejoins them
+                    game:GetService("TeleportService"):Teleport(game.PlaceId)
+                    wait(1)
+
+                end
+            end
+        end
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if v.ClassName == "LocalScript" then
+                if v then
+                    wait()
+                else
+                    CreateChatMessage("" .. game.Players.LocalPlayer.Name .. " Was Caught by Bork Anti-Cheat (Modifing Local Scripts!)")--This just rejoins them
+                    game:GetService("TeleportService"):Teleport(game.PlaceId)
+                    wait(1)
+
+                end
+            end
+        end    
+        if gcinfo()-femboy>6000 then--Anti-Dex
+            CreateChatMessage("" .. game.Players.LocalPlayer.Name .. " Was Caught by Bork Anti-Cheat (Execution of Illegal Gui)")--This just rejoins them
+            game:GetService("TeleportService"):Teleport(game.PlaceId)
+            wait(1)
+
+    end
+    femboy = gcinfo()
+end)
+end)
