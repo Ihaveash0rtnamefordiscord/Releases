@@ -1,0 +1,52 @@
+
+local ts = game:GetService("TweenService")
+local function Tween(part, endpos, speed)
+    if part and endpos then
+        local Time = (endpos - part.Position).magnitude/speed
+        local Info = TweenInfo.new(Time, Enum.EasingStyle.Linear)
+        local Tween = ts:Create(part,Info,{CFrame = CFrame.new(endpos.X,endpos.Y,endpos.Z)})
+        Tween:Play()
+        wait(Time)
+    end
+end
+   game:GetService("RunService").RenderStepped:Connect(function()
+if getgenv().beatdungeon then
+for _,uwu in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+    if uwu.ClassName == "Model" then
+        for _,v2 in pairs(uwu:GetChildren()) do
+            if v2.ClassName == "Folder" then
+for i,v in pairs(game:GetService("Workspace").Rooms:GetChildren()) do
+    if v.ClassName == "Folder" then
+        for _,v3 in pairs(v:GetChildren()) do
+            if v3.ClassName == "Model" then
+local ohInstance1 = uwu.Blade.SwordHit
+local ohInstance2 = uwu.Blade.SwordHitCrit
+local ohBoolean3 = false
+local ohInstance4 = v3.Config
+local ohNumber5 = v3.Config.MaxHealth.Value
+
+game:GetService("ReplicatedStorage").EnemyHit:FireServer(ohInstance1, ohInstance2, ohBoolean3, ohInstance4, ohNumber5)
+Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, v3.HumanoidRootPart.Position, 1000)
+if game.Players.LocalPlayer.Character.EnemyWalkTo then
+game.Players.LocalPlayer.Character.EnemyWalkTo.CFrame = CFrame.new(v3.HumanoidRootPart.Position)
+else
+    wait()
+    end
+
+
+                end
+            end
+        end
+    end
+                end
+            end
+        end
+    end
+end
+end)
+
+   game:GetService("RunService").RenderStepped:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+
+ 			
+ 			end)
