@@ -2,12 +2,6 @@ if game.PlaceId == 2606294912 then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/DungeonQuest/main/DesertTemple'))()
 elseif game.PlaceId == 2743806150 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/DungeonQuest/main/WinterOutpost'))()
-elseif game.PlaceId == 2988891534 then
-game.Players.LocalPlayer:Kick("Error 1: Dungeon Quest Map not Supported!")
-elseif game.PlaceId == 3041739550 then
-game.Players.LocalPlayer:Kick("Error 1: Dungeon Quest Map not Supported!")
-elseif game.PlaceId == 3119903031 then
-game.Players.LocalPlayer:Kick("Error 1: Dungeon Quest Map not Supported!")
-elseif game.PlaceId == 3220974599 then
-game.Players.LocalPlayer:Kick("Error 1: Dungeon Quest Map not Supported!")
+else
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/DungeonQuest/main/Other'))()
     end
