@@ -1,0 +1,21 @@
+Phantom Force = {
+--Combat
+ - Silent aim
+  -FOV
+  -DrawFOV
+  -Silent Distance
+
+--Character
+  -Walkspeed
+  -Jumppower
+  -Auto-Spot
+  -Camera offset (0-20) --Zooms out the camera
+
+--Visual
+  -BoxEsp
+  -Tracers
+      -Tracers Position(Middle, Top, Bottom)
+  -TeamColor and EnemyColor
+  -Time Of Day (CS)
+  -World Ambiet
+  -Screen Ambiet
