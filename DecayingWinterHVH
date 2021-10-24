@@ -13,7 +13,7 @@ local Settings = {
     KillAuraRange = 20, -- Refer to line 4 (Kill Aura)
     ChatMsg = "HVH Client! Made by: FeIix", --What message spams in chat
     ChatAd = true, -- Should you spam in chat?
-    ChatDelay = 99e9 -- How fast you spam in chat (Messured in Seconds!)
+    ChatDelay = 5 -- How fast you spam in chat (Messured in Seconds!)
 
 }
 ]]
