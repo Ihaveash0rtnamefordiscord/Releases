@@ -1,0 +1,64 @@
+rconsoleclear()
+rconsoleinfo('Checking for all possible Paths... \n')
+wait(1)
+local Save = Instance.new("Part", Workspace)
+Save.Size = Vector3.new(118, 1, 1793)
+Save.Orientation = Vector3.new(0, 90, 0)
+Save.Position = Vector3.new(799.5, 30, -3)
+Save.Transparency = 1
+Save.Anchored = true
+for _,v in ipairs(game:GetService("Workspace").Guess:GetChildren()) do
+    if v.ClassName == "Model" then
+        for _,v2 in pairs(v:GetChildren()) do
+            if v2.ClassName == "Part" then
+                if v2:FindFirstChild("TouchInterest") then
+                    v2.TouchInterest:Destroy()
+                end
+            end
+        end
+    end
+end
+
+rconsoleinfo('Found Best Path!... \n')
+wait(.45)
+rconsoleinfo('Optimizing Script... \n')
+wait(1)
+rconsoleinfo(' Script Made by: FeIix#0210 <3')
+game.Players.PlayerAdded:Connect(function()
+    -- PathfindingService by Infinite Yield :swaghappy:
+walkto = false
+	wait()
+	local PathService = game:GetService("PathfindingService")
+	local hum = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+	local path = PathService:CreatePath()
+			if game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') and game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').SeatPart then
+				game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').Sit = false
+				wait(.1)
+			end
+			walkto = true
+			repeat wait()
+				local success, response = pcall(function()
+					path:ComputeAsync(game.Players.LocalPlayer.Character.HumanoidRootPart.Position, game:GetService("Workspace").Win.Position)
+					local waypoints = path:GetWaypoints()
+					local distance 
+					for waypointIndex, waypoint in pairs(waypoints) do
+						local waypointPosition = waypoint.Position
+						hum:MoveTo(waypointPosition)
+						repeat 
+							distance = (waypointPosition - hum.Parent.PrimaryPart.Position).magnitude
+							wait()
+						until
+						distance <= 5
+					end	 
+				end)
+				if not success then
+				--	game.Players.LocalPlayer.Character.Humanoid:MoveTo(game:GetService("Workspace").Win.Position)
+				end
+			until walkto == false
+end)
+   game:GetService("RunService").RenderStepped:Connect(function()
+       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
+	    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+    messagebox("Thanks for using FeIix#0107's Impossible Squid Game Script \n \n \nUndetected as of: 11/13/2021\n \n \n Please contact FeIix#0107 if this is Patched!","FeIix Was here UwU",0)
