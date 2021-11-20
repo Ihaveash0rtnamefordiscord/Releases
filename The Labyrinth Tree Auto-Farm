@@ -1,0 +1,61 @@
+local function getnewtree()
+    for i = 1,10 do
+for _,v in pairs(game:GetService("Workspace").Resources.Glade.Trees:GetChildren()) do
+    if v.ClassName == "Model" then
+        if v:FindFirstChild("Spots") then
+            if v.Spots:FindFirstChild("Spot1") and v.Spots:FindFirstChild("Spot2") then
+            if v.Spots.Spot1.InUse.Value == false or v.Spots.Spot2.InUse.Value == false and v.Properties.Alive.Value == false then
+                 TreeUwU = v -- This will pick the last tree out of the list
+            end
+        end
+    end
+end
+end
+end
+game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,100,0)
+wait(.45)
+local LP = game:GetService("Players").LocalPlayer
+local ts = game:GetService("TweenService")
+local function Tween(part, endpos, speed)
+    if part and endpos then
+        local Time = (endpos - part.Position).magnitude/speed
+        local Info = TweenInfo.new(Time, Enum.EasingStyle.Linear)
+        local Tween = ts:Create(part,Info,{CFrame = CFrame.new(endpos.X,endpos.Y,endpos.Z)})
+        Tween:Play()
+        wait(Time)
+    end
+end
+Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, TreeUwU.MouseTarget.Position , 50)
+wait(1.5)
+
+game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, game)
+wait(.45)
+game:GetService("VirtualInputManager"):SendKeyEvent(false, "E", false, game)
+
+game:GetService("ReplicatedStorage").Resources.Data.Events.Traffic.ItemInteraction:InvokeServer("Interaction", TreeUwU)
+game:GetService("ReplicatedStorage").Resources.Data.Events.Traffic.Gear:InvokeServer("Equip", nil, "Axe", TreeUwU)
+getgenv().LoopUwU = true
+end
+
+getnewtree()
+getgenv().LoopUwU = true
+game:GetService("RunService").Heartbeat:Connect(function()
+    for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+				if v:IsA("BasePart") then
+					v.CanCollide = false
+				end
+ 			end
+if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - TreeUwU.MouseTarget.Position).Magnitude < 15 then
+    if getgenv().LoopUwU then
+game:GetService("ReplicatedStorage").Resources.Data.Events.Traffic.Gear:InvokeServer("Action", game.Players.LocalPlayer.Character.Head.CFrame.LookVector * 2)
+end
+end
+end)
+
+while wait(1) do
+    if TreeUwU.Properties.Alive.Value == false then
+getgenv().LoopUwU = false
+wait(2)
+getnewtree()
+    end
+end
