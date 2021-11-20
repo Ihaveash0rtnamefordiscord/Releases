@@ -87,7 +87,7 @@ OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
 	[1] = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name,
 	[2] = ClosestPlayerToMouse().Character.Humanoid,
 	[3] = ClosestPlayerToMouse().Character.HumanoidRootPart,
-	[4] = 30
+	[4] = 27 -- Damage Pinger
 }
             return self.FireServer(self, unpack(args))
 end 
