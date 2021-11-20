@@ -5,7 +5,7 @@ if v.ClassName == "RemoteEvent" then
 end
 end
 wait(.45)
-print(RemoteName.Name)
+print("The key for this room session is: " .. RemoteName.Name)
 for i = 1,5 do -- Could cause some errors but we also break the game :trole:
         local OldNamecall
 OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
@@ -50,6 +50,7 @@ OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
 end 
 return OldNamecall(self, ...)
 end)
+print('Anti-Cheat Bypassed!')
 end
 
 
@@ -86,7 +87,7 @@ OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
 	[1] = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name,
 	[2] = ClosestPlayerToMouse().Character.Humanoid,
 	[3] = ClosestPlayerToMouse().Character.HumanoidRootPart,
-	[4] = ClosestPlayerToMouse().Character.Humanoid.Health + ClosestPlayerToMouse().Character.Humanoid
+	[4] = 30
 }
             return self.FireServer(self, unpack(args))
 end 
