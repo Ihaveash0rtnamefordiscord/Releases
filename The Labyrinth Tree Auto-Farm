@@ -4,7 +4,7 @@ for _,v in pairs(game:GetService("Workspace").Resources.Glade.Trees:GetChildren(
     if v.ClassName == "Model" then
         if v:FindFirstChild("Spots") then
             if v.Spots:FindFirstChild("Spot1") and v.Spots:FindFirstChild("Spot2") then
-            if v.Spots.Spot1.InUse.Value == false or v.Spots.Spot2.InUse.Value == false and v.Properties.Alive.Value == false then
+            if v.Spots.Spot1.InUse.Value == false or v.Spots.Spot2.InUse.Value == false and v.Properties.Alive.Value == true then
                  TreeUwU = v -- This will pick the last tree out of the list
             end
         end
