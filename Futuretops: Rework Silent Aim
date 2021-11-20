@@ -1,15 +1,26 @@
 local function AntiCheat()
+for _,v in pairs(getnilinstances()) do
+if v.ClassName == "RemoteEvent" then
+    RemoteName = v
+end
+end
+wait(.45)
+print(RemoteName.Name)
+for i = 1,5 do -- Could cause some errors but we also break the game :trole:
         local OldNamecall
 OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
         local args = {...}
         local method = getnamecallmethod()
 
-        if tostring(self) == "89b56dfa-a1ed-4e40-92b7-90f07e6b4695" and method == "FireServer" then
+        if tostring(self) == RemoteName.Name and method == "FireServer" then
             args[1] = wait()
             return self.FireServer(self, unpack(args))
 end 
 return OldNamecall(self, ...)
 end)
+end
+
+if RemoteName then
 local AC = Instance.new("LocalScript")
 local AC2 = Instance.new("LocalScript")
 for _,v in ipairs(game:GetService("ReplicatedFirst"):GetChildren()) do
@@ -23,19 +34,24 @@ for _,v in ipairs(game:GetService("ReplicatedFirst"):GetChildren()) do
 
     end
 end
+else
+    game.Players.LocalPlayer:Kick('It seems the script may be patched?')
+end
+
 
         local OldNamecall
 OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
         local args = {...}
         local method = getnamecallmethod()
 
-        if tostring(self) == "89b56dfa-a1ed-4e40-92b7-90f07e6b4695" and method == "FireServer" then
+        if tostring(self) == RemoteName.Name and method == "FireServer" then
             args[1] = wait()
             return self.FireServer(self, unpack(args))
 end 
 return OldNamecall(self, ...)
 end)
 end
+
 
 local function ClosestPlayerToMouse() 
     local Plr = nil
@@ -70,7 +86,7 @@ OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
 	[1] = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name,
 	[2] = ClosestPlayerToMouse().Character.Humanoid,
 	[3] = ClosestPlayerToMouse().Character.HumanoidRootPart,
-	[4] = 27
+	[4] = ClosestPlayerToMouse().Character.Humanoid.Health + ClosestPlayerToMouse().Character.Humanoid
 }
             return self.FireServer(self, unpack(args))
 end 
