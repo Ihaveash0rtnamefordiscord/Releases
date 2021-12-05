@@ -1,0 +1,71 @@
+for i = 1,10 do
+game:GetService("ReplicatedStorage").Events.Warp:FireServer"Friendly Neighborhood"
+end
+wait(1)
+for _,v in ipairs(game:GetService("Workspace").Map.Parts:GetChildren()) do
+    if v.ClassName == "Folder" or v.ClassName == "Model" then
+        for _,v2 in ipairs(v:GetChildren()) do
+            if v2.Name == "ExplodePart" then
+                v2:Destroy()
+            end
+        end
+    end
+end
+for _,v in ipairs(game:GetService("Workspace").Map.Parts:GetChildren()) do
+    if v.ClassName == "Part" and v.Name == "ExplodePart" then
+                v:Destroy()
+    end
+end
+Game:GetService("ReplicatedStorage").Events["Give_DTfc"]:FireServer(
+    "Diamond Trollface"
+)
+local LP = game:GetService("Players").LocalPlayer
+local ts = game:GetService("TweenService")
+local function Tween(part, endpos, speed)
+    if part and endpos then
+        local Time = (endpos - part.Position).magnitude/speed
+        local Info = TweenInfo.new(Time, Enum.EasingStyle.Linear)
+        local Tween = ts:Create(part,Info,{CFrame = CFrame.new(endpos.X,endpos.Y,endpos.Z)})
+        Tween:Play()
+        wait(Time)
+    end
+end
+local OldNamecall
+OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
+        local args = {...}
+        local method = getnamecallmethod()
+
+        if tostring(self) == "Look" or tostring(self) == "FloorStick" and method == "FireServer" then
+            args[1] = wait()
+            return self.FireServer(self, unpack(args))
+end 
+return OldNamecall(self, ...)
+end)
+
+local function getNearestTroll()
+    local TargetDistance = math.huge
+    local Target
+    for i, v in ipairs(game:GetService("Workspace").Trolls:GetChildren()) do
+        if not v:FindFirstChild("Dont") or not v:FindFirstChild("NotDeb") and v.Name == "TumbleTroll" then
+            local Mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude
+            if Mag < TargetDistance then
+                TargetDistance = Mag
+                Target = v
+            end
+        end
+    end
+    return Target
+end;
+
+game:GetService('Players').LocalPlayer.Character.Humanoid.Health = 0
+	game:GetService('Players').LocalPlayer.CharacterAdded:Connect(function(plrc)
+while wait(2) do
+    for _,v in ipairs(game:GetService("Players").LocalPlayer.PlayerSettings.Owned:GetChildren()) do
+        if getNearestTroll().Name ~= v.Name then
+    Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, getNearestTroll().Position + Vector3.new(0,3,0) , 100)
+game:GetService("ReplicatedStorage").Events.Collect:FireServer(getNearestTroll().Name)
+
+end
+end
+end
+end)
