@@ -62,10 +62,12 @@ game:GetService('Players').LocalPlayer.Character.Humanoid.Health = 0
 while wait(2) do
     for _,v in ipairs(game:GetService("Players").LocalPlayer.PlayerSettings.Owned:GetChildren()) do
         if getNearestTroll().Name ~= v.Name then
-    Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, getNearestTroll().Position + Vector3.new(0,3,0) , 100)
+    Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, getNearestTroll().Position + Vector3.new(0,3,0) , getgenv().TweenSpeed)
 game:GetService("ReplicatedStorage").Events.Collect:FireServer(getNearestTroll().Name)
-
 end
 end
+if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - getNearestTroll().Position).Magnitude < 5 then
+    getNearestTroll():Destroy()
+    end
 end
 end)
