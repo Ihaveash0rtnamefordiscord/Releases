@@ -1,5 +1,4 @@
--- original made by siper, just made a few modifications.
-
+-- original made by siper, but skidded from Duck
 local module = {
     drawingcache = {},
     cache = {},
