@@ -1,0 +1,79 @@
+-- getgenv().TPCoolDown = .25 -- Anything above Medium change to 2-3
+-- getgenv().SlashCooldown = 1 -- This doesnt matter I would leave it as 1 tbh
+-- getgenv().KillCount = 3 -- This is how many kills before a cooldown ( Would leave at 3 )
+-- getgenv().Cooldown = 5 -- After KillCount is reached how long should we wait?
+-- // MAIN SOURCE LEAVE BELOW  \\ -- 
+local Count = 0
+if game.PlaceId ~= 6379910076 then
+    local success, error = pcall(function()
+        game:GetService("TeleportService"):Teleport(6379910076)  
+    end)
+    if success then
+        print('Can Teleport!')
+        else
+        print('Unable to teleport!')
+    end
+    
+end
+
+local function getNearestTitan()
+    local TargetDistance = math.huge
+    local Target
+    for i, v in ipairs(workspace:GetChildren()) do
+        if v.Name == "Titan" then
+            if v:FindFirstChildOfClass("Humanoid").Health >= 1 then
+            local Mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("Head").Position).Magnitude
+                    if Mag < TargetDistance then
+                        TargetDistance = Mag
+                        Target = v
+                    end
+            end
+        end
+    end
+    return Target
+end;
+
+local LastSafePos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+local LastKnowKillStreakData = game:GetService("Players").LocalPlayer.leaderstats.Killstreak.Value
+spawn(function()
+while task.wait() do
+       if game:GetService("Players").LocalPlayer.leaderstats.Killstreak.Value == LastKnowKillStreakData + getgenv().KillCount then
+            print('Player has gained '.. getgenv().KillCount..' kills!')
+            Count = Count + getgenv().KillCount 
+            LastKnowKillStreakData = game:GetService("Players").LocalPlayer.leaderstats.Killstreak.Value
+        end
+    end
+end)
+
+ spawn(function()
+     while task.wait(getgenv().TPCoolDown) do
+         pcall(function()
+            if Count >= getgenv().KillCount then
+                print(Count .. ' Titans were killed! Waiting cooldown...')
+                wait(getgenv().Cooldown) -- Cooldown as game detects fast movement/kills
+                         Count = 0 -- reset out counter
+                         print('Cooldown down! Starting Auto-Farm!') -- debug print
+                         else -- if we are not on cooldown
+                             if getNearestTitan() then -- just testing that we do have a target
+                            --  print('going to a new titan')
+            if Count <= getgenv().KillCount - 1 then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(getNearestTitan().Head.Position + getNearestTitan().Head.CFrame.LookVector *-2) -- go behind the target
+            
+                end
+                end
+            end
+         end)
+    end
+ end)
+
+
+ spawn(function()
+     while task.wait(getgenv().SlashCooldown) do
+         pcall(function()
+             if Count <= getgenv().KillCount - 1 and getNearestTitan() then
+                 -- print("Attempting to Attack a Titan")
+                game:GetService("ReplicatedStorage").DamageEvent:FireServer(nil, getNearestTitan():FindFirstChildOfClass("Humanoid"), "&@&*&@&", getNearestTitan())
+            end
+         end)
+    end
+ end)
