@@ -1,0 +1,94 @@
+local append, concat, floor, abs = table.insert, table.concat, math.floor, math.abs
+local num = {
+	'ONE',
+	'TWO',
+	'THREE',
+	'FOUR',
+	'FIVE',
+	'SIX',
+	'SEVEN',
+	'EIGHT',
+	'NINE',
+	'TEN',
+	'ELEVEN',
+	'TWELVE',
+	'THIRTEEN',
+	'FOURTEEN',
+	'FIFTEEN',
+	'SIXTEEN',
+	'SEVENTEEN',
+	'EIGHTEEN',
+	'NINETEEN'
+}
+local tens = {
+	'TWENTY',
+	'THIRTY',
+	'FORTY',
+	'FIFTY',
+	'SIXTY',
+	'SEVENTY',
+	'EIGHTY',
+	'NINETY'
+}
+local bases = {
+	{
+		floor(1e18),
+		' QUINTILLION'
+	},
+	{
+		floor(1e15),
+		' QUADRILLION'
+	},
+	{
+		floor(1e12),
+		' TRILLION'
+	},
+	{
+		floor(1e9),
+		' BILLION'
+	},
+	{
+		1000000,
+		' MILLION'
+	},
+	{
+		1000,
+		' THOUSAND'
+	},
+	{
+		100,
+		' HUNDRED'
+	}
+}
+
+local insert_word_AND = false  -- 101 = "one hundred and one" / "one hundred one"
+
+local function IntegerNumberInWords(n)
+   -- Returns a string (spelling of integer number n)
+   -- n should be from -2^53 to 2^53  (-2^63 < n < 2^63 for integer argument in Lua 5.3)
+	local str = {}
+	if n < 0 then
+		append(str, "minus")
+	end
+	n = floor(abs(n))
+	if n == 0 then
+		return "zero"
+	end
+	if n >= 1e21 then
+		append(str, "infinity")
+	else
+		local AND
+		for _, base in ipairs(bases) do
+			local value = base[1]
+			if n >= value then
+				append(str, IntegerNumberInWords(n / value) .. base[2])
+				n, AND = n % value, insert_word_AND or nil
+			end
+		end
+		if n > 0 then
+			append(str, AND and "and")   -- a nice pun
+			append(str, num[n] or tens[floor(n / 10) - 1] .. (n % 10 ~= 0 and '-' .. num[n % 10] or ''))
+		end
+	end
+	return concat(str, ' ')
+end
