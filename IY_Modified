@@ -10062,7 +10062,7 @@ addcmd('looptp',{},function(args, speaker)
     end
 end)
 
-addcmd('stoplooptp',{},function(args, speaker)
+addcmd('stoplooptp',{'unlooptp'},function(args, speaker)
     TPMEOVER = nil
 end)
 
