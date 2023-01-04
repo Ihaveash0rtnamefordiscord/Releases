@@ -1,0 +1,13 @@
+game.ScriptContext:SetTimeout(0.05) -- while true do end is stinky lol
+local AntiCheatRemote
+local OldNamecall
+OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
+        local args = {...}
+        local method = getnamecallmethod()
+
+        if getnamecallmethod() == "FireServer" and (args[2] == 'no_remotespy_pls_ok____2' or tostring(getcallingscript()) == 'LocalScript' and getcallingscript().Parent == game.ReplicatedFirst) then
+            return task.wait(9e9)
+        end 
+
+return OldNamecall(self, ...)
+end)
