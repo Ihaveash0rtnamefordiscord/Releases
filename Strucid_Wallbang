@@ -10,10 +10,10 @@ end))
 local OldSelf
 OldSelf = hookfunction(getrenv().game:GetService("ReplicatedStorage").Network.RemoteEvent.FireServer,function(self,...)
    local Args = {...}
-    if Args[3] == 5.5 and LocalPlayer.PlayerGui:FindFirstChild('MainGui') then
-        Args[5] = require(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.NewLocal.Shared).CurrIndex -- Current Gun ID
-        Args[6] = Args[4][1][1] -- Server Success Hit
-        return OldSelf(self,unpack(Args))
-    end
-   return OldSelf(self,...)
+    if Args[2] == 5.5 and LocalPlayer.PlayerGui.FindFirstChild(LocalPlayer.PlayerGui,'MainGui') then
+            Args[5] = require(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.NewLocal.Shared).CurrIndex
+            Args[6] = Args[4][1][1]
+      end
+   
+   return OldSelf(self,unpack(Args))
 end)
