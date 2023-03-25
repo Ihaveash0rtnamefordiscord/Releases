@@ -1,0 +1,9 @@
+spawn(function()
+	while task.wait() do
+		pcall(function()
+			if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("LowerTorso"):FindFirstChild("BouncerTrail") then
+				require(game.ReplicatedStorage.Modules.NetworkModule2):FireServer("Bouncing")
+			end
+		end)
+	end
+end)
