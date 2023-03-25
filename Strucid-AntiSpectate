@@ -1,0 +1,9 @@
+spawn(function()
+	while task.wait() do
+		pcall(function()
+			if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+				game:GetService("ReplicatedStorage").Network.LookDir:FireServer(-math.huge / 3 * math.huge * 43 - math.huge / math.huge / -3 / 0 / 0) -- just return 0/0
+			end
+		end)
+	end
+end)
