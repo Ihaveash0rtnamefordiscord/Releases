@@ -1,0 +1,19 @@
+local Players = game:GetService('Players')
+local LocalPlayer = Players.LocalPlayer
+local rayHook;
+rayHook = hookfunction(workspace.FindPartOnRayWithIgnoreList, newcclosure(function(...)
+	local Args = {...}
+	Args[3] = {game:GetService("Terrain"),game:GetService("Workspace").IgnoreThese,game:GetService("Players").LocalPlayer.Character,game:GetService("Workspace").BuildStuff,game:GetService("Workspace").Map,game:GetService("Workspace").Terrain}
+	return rayHook(unpack(Args))
+end))
+
+local OldSelf
+OldSelf = hookfunction(getrenv().game:GetService("ReplicatedStorage").Network.RemoteEvent.FireServer,function(...)
+   local Args = {...}
+    if Args[2] == 5.5 and LocalPlayer.PlayerGui.FindFirstChild(LocalPlayer.PlayerGui,'MainGui') then
+        Args[5] = require(game:GetService("Players").LocalPlayer.PlayerGui.MainGui.NewLocal.Shared).CurrIndex -- Current Gun ID
+        Args[6] = Args[4][1][1] -- Server Success Hit
+    end
+  
+   return OldSelf(unpack(Args))
+end)
