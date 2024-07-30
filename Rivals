@@ -1,0 +1,156 @@
+-- // Configs
+
+local TeamColors = {Team = Color3.fromRGB(0,225,0) , Enemy = Color3.fromRGB(225,0,0)}
+
+-- // UI Library
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))();
+
+-- // ESP Library
+local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Sirius/request/library/sense/source.lua'))();
+Sense.sharedSettings.useTeamColor = true;
+
+-- // UI Library Folders
+
+local Window = Rayfield:CreateWindow({Name = "Rivals!",ConfigurationSaving = {Enabled = true,FileName = "DarkHub_Rivals"}});
+local CombatTab = Window:CreateTab("Combat");
+local PlayerTab = Window:CreateTab("Player");
+local VisualsTab = Window:CreateTab("Visuals");
+local MiscellaneousTab = Window:CreateTab("Miscellaneous");
+
+-- // Declared Services
+
+local Players = game:GetService("Players");
+local ReplicatedStorage = game:GetService("ReplicatedStorage");
+local RunService = game:GetService("RunService");
+local UserInputService = game:GetService("UserInputService");
+
+-- // Private Variables
+
+local LocalPlayer = Players.LocalPlayer;
+local Mouse = LocalPlayer:GetMouse();
+local CurMap
+
+local function GetEnemy(player: Player)
+   return player:GetAttribute("TeamID") and player:GetAttribute("TeamID") ~= LocalPlayer:GetAttribute("TeamID") or false
+end
+
+function Sense.getTeamColor(player: Player)
+	if not GetEnemy(player) then
+		return player and TeamColors.Team
+	else
+		return player and TeamColors.Enemy
+	end
+end
+
+-- [[ Start of Combat Tab ]] --
+
+
+CombatTab:CreateToggle({
+	Name = "Loop Kill All",
+	CurrentValue = false,
+	Flag = 'FF_KillAll',
+	Callback = function()end,
+})
+
+-- [[ End of Combat Tab ]] --
+
+-- [[ Start of Player Tab ]] --
+
+
+PlayerTab:CreateSlider({
+	Name = "Player Speed",
+	Range = {16,100},
+	Increment = 1,
+	Suffix = "WalkSpeed",
+	CurrentValue = 16,
+	Flag = 'FV_Walkspeed',
+	Callback = function(Value)if LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = Value end end,
+})
+
+PlayerTab:CreateSlider({
+	Name = "Player JumpPower",
+	Range = {50,150},
+	Increment = 1,
+	Suffix = "JumpPower",
+	CurrentValue = 50,
+	Flag = 'FV_Walkspeed',
+	Callback = function(Value)if LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = Value  end end,
+})
+
+
+-- [[ Start Of Visuals Tab ]] --
+
+local enemySection = VisualsTab:CreateSection("Toggle Visuals")
+
+local showFriendlyToggle = VisualsTab:CreateToggle({
+	Name = "Show Team",
+	CurrentValue = false,
+	Flag = 'ShowFriendly',
+    Callback = function(Value)
+		Sense.teamSettings.friendly.enabled = Value
+	end,
+})
+
+local showMurderToggle = VisualsTab:CreateToggle({
+	Name = "Show Enemies",
+	CurrentValue = false,
+	Flag = 'ShowEnemies',
+	Callback = function(Value)
+		Sense.teamSettings.enemy.enabled = Value
+	end,
+})
+
+local totalVisuals = {}
+local ignoreVisual = {'weapon','weaponOutline', 'enabled', 'boxOutline', 'nameOutline', 'healthBarOutline', 'tracerOutline', 'offScreenArrowOutline', 'chamsOutline', 'box3d', 'healthTextOutline', 'chamsVisibleOnly', 'distanceOutline'}
+for i,v in pairs(Sense.teamSettings.enemy) do
+    if typeof(v) == 'boolean' and not table.find(ignoreVisual, i) then
+       table.insert(totalVisuals, tostring(i))
+    end
+end
+
+VisualsTab:CreateDropdown({
+   Name = "ESP Type",
+   Options = totalVisuals,
+   CurrentOption = {},
+   MultipleOptions = true,
+   Flag = "FF_EspType",
+   Callback = function(Option)
+    for i,v in pairs(totalVisuals) do -- may call lag, but ehh not that bad
+	if table.find(Option, v) then
+	  Sense.teamSettings.enemy[v] = true
+	  Sense.teamSettings.friendly[v] = true
+	else
+	  Sense.teamSettings.enemy[v] = false
+	  Sense.teamSettings.friendly[v] = false
+	end
+    end
+end,
+})
+
+local FriendlySection = VisualsTab:CreateSection("ESP Customization")
+
+VisualsTab:CreateColorPicker({
+	Name = "Team Color",
+	Color = Color3.fromRGB(0, 225, 0),
+	Callback = function(Value)
+		TeamColors.Team = Value
+	end
+})
+
+VisualsTab:CreateColorPicker({
+	Name = "Enemy Color",
+	Color = Color3.fromRGB(225,0,0),
+	Callback = function(Value)
+		TeamColors.Enemy = Value
+	end
+})
+
+-- [[ End Of Visuals Tab ]] --
+
+
+-- [[ End Of Miscelaneous Tab ]] --
+
+-- // Loops
+
+-- // Load
+Sense.Load()
